@@ -1,0 +1,33 @@
+{
+  "name": "baseballapp",
+  "version": "1.0.0",
+  "description": "Baseball Data Analysis",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.6.4",
+    "mongoose": "^5.11.16",
+    "node": "^15.8.0",
+    "postman-request": "^2.88.1-postman.28",
+    "request": "^2.88.2",
+    "validator": "^13.5.2"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "author": "Chris Power",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcpower/baseball.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jcpower/baseball/issues"
+  },
+  "homepage": "https://github.com/jcpower/baseball#readme",
+  "keywords": [],
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
