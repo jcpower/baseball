@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "express": "^4.17.1",
+    "mlb-stats-api": "^1.4.0",
     "mongodb": "^3.6.4",
     "mongoose": "^5.11.16",
     "node": "^15.8.0",
