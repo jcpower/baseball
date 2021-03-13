@@ -1,4 +1,4 @@
-
+//start of a model, not hooked up yet
 
 const User = mongoose.model('User', {
     name: {
