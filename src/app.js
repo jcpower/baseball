@@ -14,8 +14,9 @@ request({url}, (error, response) => {
     })
     })
 
+// Figure out how the above works  Go back and look at each line again and think through what it's doing. Refer to the JavaScript MDN documentation if it's helpful.
+//For visualizing the JSON data structure better I also highly recommend https://jsoneditoronline.org/
 
-    
 
 // //This gets us out count of games
 // request ({url:url}, (error, response) => {
