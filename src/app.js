@@ -1,9 +1,9 @@
 const request = require('postman-request')
 const MLBStatsAPI = require('mlb-stats-api')
+const { response } = require('express')
 const mlbStats = new MLBStatsAPI()
 
 const url = 'http://statsapi.mlb.com/api/v1/schedule/games/?sportId=1'
-
 
 //Gets individual game information, but not scores or team names
 
@@ -24,13 +24,17 @@ const url = 'http://statsapi.mlb.com/api/v1/schedule/games/?sportId=1'
 //     console.log(data.dates[0].games[1].teams.away.team.name, data.dates[0].games[1].teams.home.team.name )
 // })
 
-
-
-
-request({ url: url}, (error, response) => {
-    const data = JSON.parse(response.body)
-    console.log(data.dates[0].games[0].officialDate, data.dates[0].games[0].teams.away.team.name, data.dates[0].games[0].teams.away.score, data.dates[0].games[0].teams.home.team.name, data.dates[0].games[0].teams.home.score)
+//This gets us out count of games
+request ({url:url}, (error, response) => {
+    const { totalGames } = JSON.parse(response.body)
+    console.log(totalGames)
 })
+
+
+// request({ url: url}, (error, response) => {
+//     const data = JSON.parse(response.body)
+//     console.log(data.dates[0].games[0].officialDate, data.dates[0].games[0].teams.away.team.name, data.dates[0].games[0].teams.away.score, data.dates[0].games[0].teams.home.team.name, data.dates[0].games[0].teams.home.score)
+// })
 
 
 //Gets you a full schedule of incomplete information
