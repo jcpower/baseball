@@ -4,8 +4,18 @@ const { express } = require('express')
 const mlbStats = new MLBStatsAPI()
 
 const url = 'http://statsapi.mlb.com/api/v1/schedule/games/?sportId=1'
-const gameinterval = 0
 
+//Prints out today's games and scores
+request({url}, (error, response) => {
+    const responseBody = JSON.parse(response.body)
+    const games = responseBody.dates[0].games
+    games.forEach(game => {
+    console.log(game.officialDate, game.teams.away.team.name, game.teams.away.score, game.teams.home.team.name, game.teams.home.score);
+    })
+    })
+
+
+    
 
 // //This gets us out count of games
 // request ({url:url}, (error, response) => {
@@ -61,11 +71,5 @@ const gameinterval = 0
 //     return console.log(result)
 // })
 
-request({url}, (error, response) => {
-    const responseBody = JSON.parse(response.body)
-    const games = responseBody.dates[0].games
-    games.forEach(game => {
-    console.log(game.officialDate, game.teams.away.team.name, game.teams.away.score, game.teams.home.team.name, game.teams.home.score);
-    })
-    })
+
 
