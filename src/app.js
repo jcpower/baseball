@@ -1,9 +1,27 @@
 const request = require('postman-request')
 const MLBStatsAPI = require('mlb-stats-api')
-const { response } = require('express')
+const { express } = require('express')
 const mlbStats = new MLBStatsAPI()
 
 const url = 'http://statsapi.mlb.com/api/v1/schedule/games/?sportId=1'
+const gameinterval = 0
+
+
+// //This gets us out count of games
+// request ({url:url}, (error, response) => {
+//     const { totalGames } = JSON.parse(response.body)
+//     console.log(totalGames)
+// })
+
+//Gets basic box score - Date, away team name, away score, home team name, home team score
+// request({ url: url}, (error, response) => {
+//     const data = JSON.parse(response.body)
+//     console.log(data.dates[0].games[0].officialDate, data.dates[0].games[1].teams.away.team.name, data.dates[0].games[1].teams.away.score, data.dates[0].games[1].teams.home.team.name, data.dates[0].games[1].teams.home.score)
+// })
+
+
+
+
 
 //Gets individual game information, but not scores or team names
 
@@ -24,11 +42,7 @@ const url = 'http://statsapi.mlb.com/api/v1/schedule/games/?sportId=1'
 //     console.log(data.dates[0].games[1].teams.away.team.name, data.dates[0].games[1].teams.home.team.name )
 // })
 
-//This gets us out count of games
-request ({url:url}, (error, response) => {
-    const { totalGames } = JSON.parse(response.body)
-    console.log(totalGames)
-})
+
 
 
 // request({ url: url}, (error, response) => {
@@ -47,5 +61,11 @@ request ({url:url}, (error, response) => {
 //     return console.log(result)
 // })
 
-
+request({url}, (error, response) => {
+    const responseBody = JSON.parse(response.body)
+    const games = responseBody.dates[0].games
+    games.forEach(game => {
+    console.log(game.officialDate, game.teams.away.team.name, game.teams.away.score, game.teams.home.team.name, game.teams.home.score);
+    })
+    })
 
