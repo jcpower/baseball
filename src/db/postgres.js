@@ -29,7 +29,7 @@ const getGamesById = (request, response) => {
 
 
 const createGames = (request, response) => {
-  const { name, capital } = request.body
+  const { date, hometeam, hometeamscore, visitorteam, visitorteamscore } = request.body
 
   pool.query('INSERT INTO games (date, hometeam, hometeamscore,vistorteam,visitorteamscore) VALUES ($1, $2, $3, $4, $5)', [date,hometeam,hometeamscore,visitorteam,visitorteamscore], (error, results) => {
     if (error) {
