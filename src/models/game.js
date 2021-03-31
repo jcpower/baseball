@@ -45,21 +45,13 @@ const sequelize = new Sequelize('baseball', 'manager', 'RoseHOF14', {
         hometeam: "Reds",
         hometeamscore: 11,
         visitorteam: "Cardinals",
-<<<<<<< Updated upstream
+
         visitorteamscore: "0"
     });
     console.log(testGame instanceof Game);
     console.log(testGame.hometeam) ;
     await testGame.save();
     console.log('Test Game was saved to the DB!!!!');
-=======
-        visitorteamscore: 0
-    })
-    console.log(testGame instanceof Game)
-    console.log(testGame.hometeam) 
-    await testGame.save()
-    console.log('Test Game was saved to the DB!!!!')
->>>>>>> Stashed changes
 }
   
   testFunction();
