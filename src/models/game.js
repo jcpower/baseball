@@ -35,19 +35,19 @@ try {
           allowNull: false
       },
       // Other model options go here
-      sequelize, // We need to pass the connection instance
-      modelName: 'User' // We need to choose the model name
+      sequelize: sequelize, // We need to pass the connection instance
+      modelName: 'Game' // We need to choose the model name
     })
-   
+    const testGame = Game.build({
+        hometeam: "Reds",
+        homteamscore: 10,
+        visitorteam: "Cardinals",
+        visitorteamscore: 0
+    })
+    console.log(testGame instanceof Game)
+    console.log(testGame.hometeam) 
 }
   
   testFunction()
 
-  const testGame = Game.build({
-      hometeam: "Reds",
-      homteamscore: 10,
-      visitorteam: "Cardinals",
-      visitorteamscore: 0
-  })
-  console.log(testGame instanceof Game)
-  console.log(testGame.hometeam)
+  
