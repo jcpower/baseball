@@ -46,9 +46,9 @@ try {
     const testGame = Game.build({
         date: new Date('2021-04-01'),
         hometeam: "Reds",
-        hometeamscore: 10,
+        hometeamscore: "11",
         visitorteam: "Cardinals",
-        visitorteamscore: 0
+        visitorteamscore: "0"
     })
     console.log(testGame instanceof Game)
     console.log(testGame.hometeam) 
