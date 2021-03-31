@@ -14,7 +14,7 @@
     "pg-hstore": "^2.3.3",
     "postman-request": "^2.88.1-postman.28",
     "request": "^2.88.2",
-    "sequelize": "^6.5.0",
+    "sequelize": "^6.5.1",
     "validator": "^13.5.2"
   },
   "scripts": {

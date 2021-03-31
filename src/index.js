@@ -2,8 +2,8 @@ const express = require('express')
 const User = require('./models/user')
 const bodyParser = require('body-parser')
 const app = express()
-const db = require('./db/postgres')
-const port = 3000
+//const db = require('./db/postgres')
+//const port = 3000
 
 app.use(bodyParser.json())
 
@@ -20,17 +20,17 @@ app.get('/', (request, response) => {
 
 
 
-app.get('/games', db.getGames)
-app.get('/games/:id', db.getGamesById)
-app.post('/games', db.createGames)
-app.put('/games/:id', db.updateGames)
-app.delete('/games/:id', db.deleteGames) 
+// app.get('/games', db.getGames)
+// app.get('/games/:id', db.getGamesById)
+// app.post('/games', db.createGames)
+// app.put('/games/:id', db.updateGames)
+// app.delete('/games/:id', db.deleteGames) 
 
 
 
-app.listen(port, () => {
-  console.log(`App running on port ${port}.`)
-})
+// app.listen(port, () => {
+//   console.log(`App running on port ${port}.`)
+//})
 
 
 
