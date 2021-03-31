@@ -18,7 +18,8 @@ try {
         allowNull: false
       },
       hometeam: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false 
         // allowNull defaults to true
       },
       hometeamscore: {
@@ -41,3 +42,12 @@ try {
 }
   
   testFunction()
+
+  const testGame = Game.build({
+      hometeam: "Reds",
+      homteamscore: 10,
+      visitorteam: "Cardinals",
+      visitorteamscore: 0
+  })
+  console.log(testGame instanceof Game)
+  console.log(testGame.hometeam)
