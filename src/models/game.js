@@ -50,7 +50,7 @@ const sequelize = new Sequelize('baseball', 'manager', 'RoseHOF14', {
     });
     await testGame.save();
     const game = await Game.findAll();
-    console.log(games.every(user => game instanceof Game)); // true
+    console.log(games.every(game => game instanceof Game)); // true
     console.log("All games:", JSON.stringify(games, null, 2));
     
 }
