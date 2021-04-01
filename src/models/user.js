@@ -1,42 +1,43 @@
-//start of a model, not hooked up yet
+const { Sequelize, DataTypes, Model } = require('sequelize')  //if rerunning sequelize.define example change back to justDataTypes
+const sequelize = new Sequelize('postgres://manager:RoseHOF14@localhost:5432/baseball')
 
-// const User = mongoose.model('User', {
-//     name: {
-//         type: String,
-//         required: true,
-//         trim: true
-//     },
-//     email: {
-//         type: String,
-//         required: true,
-//         trim: true,
-//         lowercase: true,
-//         validate(value) {
-//             if (!validator.isEmail(value)) {
-//                 throw new Error('Email is invalid')
-//             }
-//         }
-//     },
-//     password: {
-//         type: String,
-//         required: true,
-//         minlength: 7,
-//         trim: true,
-//         validate(value) {
-//             if (value.toLowerCase().includes('password')) {
-//                 throw new Error('Password cannot contain "password"')
-//             }
-//         }
-//     },
-//     age: {
-//         type: Number,
-//         default: 0,
-//         validate(value) {
-//             if (value < 0) {
-//                 throw new Error('Age must be a postive number')
-//             }
-//         }
-//     }
-// })
+class User extends Model{}
 
-// module.exports = User
+
+  async function testFunction() {
+    User.init({
+      // Model attributes are defined here
+      firstName: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      lastName: {
+        type: DataTypes.STRING
+        // allowNull defaults to true
+      },
+      email: {
+          type: DataTypes.STRING,
+          allowNull: false
+      },
+      age: {
+          type: DataTypes.INTEGER
+      }
+      }, {   
+      // Other model options go here
+      sequelize, // We need to pass the connection instance
+      modelName: 'User' // We need to choose the model name
+});
+const testUser = User.build({
+    firstName: "Chris",
+    lastName: "Power",
+    email: "test@test.com",
+    age: "22"
+    
+});
+console.log(testUser instanceof User);
+console.log(testUser.lastName) ;
+await testUser.save();
+console.log('Test User was saved to the DB!!!!');
+}
+  
+  testFunction();

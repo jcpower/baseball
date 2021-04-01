@@ -48,10 +48,11 @@ const sequelize = new Sequelize('baseball', 'manager', 'RoseHOF14', {
 
         visitorteamscore: "0"
     });
-    console.log(testGame instanceof Game);
-    console.log(testGame.hometeam) ;
     await testGame.save();
-    console.log('Test Game was saved to the DB!!!!');
+    const game = await Game.findAll();
+    console.log(games.every(user => game instanceof Game)); // true
+    console.log("All games:", JSON.stringify(games, null, 2));
+    
 }
   
   testFunction();
