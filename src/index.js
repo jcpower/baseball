@@ -2,6 +2,8 @@ const express = require('express')
 const User = require('./models/user')
 const bodyParser = require('body-parser')
 const app = express()
+const Game =require('./models/game')
+
 //const db = require('./db/postgres')
 //const port = 3000
 

@@ -49,7 +49,7 @@ const sequelize = new Sequelize('baseball', 'manager', 'RoseHOF14', {
         visitorteamscore: "0"
     });
     await testGame.save();
-    const game = await Game.findAll();
+    const games = await Game.findAll();
     console.log(games.every(game => game instanceof Game)); // true
     console.log("All games:", JSON.stringify(games, null, 2));
     
@@ -57,4 +57,5 @@ const sequelize = new Sequelize('baseball', 'manager', 'RoseHOF14', {
   
   testFunction();
 
+  module.exports = Game
   
