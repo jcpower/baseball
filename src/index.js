@@ -21,19 +21,37 @@ app.get('/', (request, response) => {
   response.json({Welcome: 'How to create API with Node.js, Express and PostgreSQL'})
 })
 
-
-
-
-
-
-
 app.listen(port, () => {
   console.log(`App running on port ${port}.`)
 })
 
+app.get('/games', async (request, response) => {
+  const match = {}
+  const sort ={}
+  if (req.query.completed) {
+    match.completed = req.query.completed === 'true'
+}
 
+if (req.query.sortBy) {
+    const parts = req.query.sortBy.split(':')
+    sort[parts[0]] = parts[1] === 'desc' ? -1 : 1 
+} 
 
-
+try {
+    await req.user.populate({
+        path: 'games',
+        match, 
+        options: {
+            limit: parseInt(req.query.limit),
+            skip: parseInt(req.query.skip),
+            sort
+        }
+    }).execPopulate()
+    res.send(req.user.tasks)
+} catch (e) {
+    res.status(500).send()
+}
+})
 
 // app.get('/games', db.getGames)
 // app.get('/games/:id', db.getGamesById)
