@@ -3,11 +3,11 @@ const User = require('./models/user')
 const bodyParser = require('body-parser')
 const app = express()
 const Game =require('./models/game')
+//const gamedaystats = require('./apicollection')
 const port = process.env.PORT || 3000
 
 
-//const db = require('./db/postgres')
-//const port = 3000
+
 
 app.use(bodyParser.json())
 
