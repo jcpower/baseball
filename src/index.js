@@ -47,7 +47,7 @@ try {
             sort
         }
     }).execPopulate()
-    res.send(req.user.tasks)
+    res.send(req.games)
 } catch (e) {
     res.status(500).send()
 }
