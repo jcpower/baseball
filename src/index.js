@@ -17,9 +17,9 @@ app.use(
 )
 
 //Get Request to root URL
-app.get('/', (request, response) => {
-  response.json({Welcome: 'How to create API with Node.js, Express and PostgreSQL'})
-})
+//app.get('/', (request, response) => {
+  //response.json({Welcome: 'How to create API with Node.js, Express and PostgreSQL'})
+//})
 
 app.listen(port, () => {
   console.log(`App running on port ${port}.`)
@@ -47,7 +47,7 @@ try {
             sort
         }
     }).execPopulate()
-    response.send(request.games)
+    response.json(request.games)
 } catch (e) {
     request.status(500).send()
 }
