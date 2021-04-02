@@ -27,9 +27,10 @@ app.listen(port, () => {
 })
 
 app.get('/games', async (request, response) => {
+  const games = await Game.findAll();
+  console.log(games.every(game => game instanceof Game)); // true
+  console.log("All games:", JSON.stringify(games, null, 2));
 
-
-  
 })
 
 // app.get('/games', db.getGames)
