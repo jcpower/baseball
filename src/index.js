@@ -5,6 +5,7 @@ const app = express()
 const Game =require('./models/game')
 const port = process.env.PORT || 3000
 
+
 //const db = require('./db/postgres')
 //const port = 3000
 
@@ -26,31 +27,9 @@ app.listen(port, () => {
 })
 
 app.get('/games', async (request, response) => {
-  const match = {}
-  const sort ={}
-  if (request.query.completed) {
-    match.completed = request.query.completed === 'true'
-}
 
-if (request.query.sortBy) {
-    const parts = request.query.sortBy.split(':')
-    sort[parts[0]] = parts[1] === 'desc' ? -1 : 1 
-} 
 
-try {
-    await request.user.populate({
-        path: 'games',
-        match, 
-        options: {
-            limit: parseInt(request.query.limit),
-            skip: parseInt(request.query.skip),
-            sort
-        }
-    }).execPopulate()
-    response.json(request.games)
-} catch (e) {
-    request.status(500).send()
-}
+  
 })
 
 // app.get('/games', db.getGames)
