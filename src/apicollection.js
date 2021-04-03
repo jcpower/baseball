@@ -12,6 +12,7 @@ async function fetchTodaysGames() {
         games.forEach(game => {
             console.log(game.officialDate, game.teams.away.team.name, game.teams.away.score, game.teams.home.team.name, game.teams.home.score);
         })
+    return games
 
     }
     catch (error) {

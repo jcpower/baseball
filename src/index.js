@@ -3,7 +3,7 @@ const User = require('./models/user')
 const bodyParser = require('body-parser')
 const app = express()
 const Game =require('./models/game')
-const gamedaystats = require('./apicollection')
+const fetchTodaysGames = require('./apicollection')
 const port = process.env.PORT || 3000
 
 
@@ -31,6 +31,18 @@ app.get('/games', async (request, response) => {
   response.send(games);
 
 })
+
+app.post('/TodaysGames', async (request, response) => {
+  const todaysgames = await fetchTodaysGames()  
+  
+  try {
+    await todaysgames.save()
+  } catch (error) {
+    response.status(400).send(error)
+  }
+  console.log(todaysgames)
+})
+
 
 // app.get('/games', db.getGames)
 // app.get('/games/:id', db.getGamesById)
