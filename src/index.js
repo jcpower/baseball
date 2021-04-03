@@ -38,7 +38,7 @@ app.post('/TodaysGames', async (request, response) => {
   try {
     await todaysgames.save()
   } catch (error) {
-    response.status(400).send(error)
+    response.status(400).send({error})
   }
   console.log(todaysgames)
 })

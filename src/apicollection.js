@@ -7,8 +7,7 @@ const url = 'http://statsapi.mlb.com/api/v1/schedule/games/?sportId=1'
 async function fetchTodaysGames() {
     try {
         const response = await axios.get(url)
-        const responseBody = JSON.parse(response.body)
-        const games = responseBody.dates[0].games
+        const games = response.data.dates[0].games
         games.forEach(game => {
             console.log(game.officialDate, game.teams.away.team.name, game.teams.away.score, game.teams.home.team.name, game.teams.home.score);
         })
