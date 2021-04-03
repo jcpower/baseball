@@ -3,7 +3,7 @@ const User = require('./models/user')
 const bodyParser = require('body-parser')
 const app = express()
 const Game =require('./models/game')
-//const gamedaystats = require('./apicollection')
+const gamedaystats = require('./apicollection')
 const port = process.env.PORT || 3000
 
 
@@ -28,8 +28,7 @@ app.listen(port, () => {
 
 app.get('/games', async (request, response) => {
   const games = await Game.findAll();
-  console.log(games.every(game => game instanceof Game)); // true
-  console.log("All games:", JSON.stringify(games, null, 2));
+  response.send(games);
 
 })
 
